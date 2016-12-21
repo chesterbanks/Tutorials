@@ -1,0 +1,49 @@
+/** The x and y positions of the character. */
+var x = 200;
+var y = 200;
+
+/** This code makes the key movement on line 36 possible. */
+var keys = [];
+keyPressed = function(){
+    keys[keyCode] = true;
+};
+keyReleased = function(){
+    keys[keyCode] = false;
+};
+
+draw = function() {
+    background(144, 62, 179);
+    
+    noStroke();
+    /* The character itself, drawn at the x & y variables we defined earlier. In a real game, this ellipse would be replaced with better character graphics. */
+    ellipse(x, y, 30, 30);
+    
+    /**
+     * This is how most beginners do key movement. But this method has a problem: only one key can be pressed at a time, so the character can't go diagonal and the movement just looks choppy.
+    if(keyIsPressed && keyCode === RIGHT){
+        x += 5;
+    }
+    if(keyIsPressed && keyCode === LEFT){
+        x -= 5;
+    }
+    if(keyIsPressed && keyCode === UP){
+        y -= 5;
+    }
+    if(keyIsPressed && keyCode === DOWN){
+        y += 5;
+    } */
+    
+    /** This is the right way to do key movement. Instead of saying "if(keyIsPressed && keyCode === RIGHT){", you simply say "if(keys[RIGHT]){" */
+    if(keys[RIGHT]){ // This is saying, "if the right key is pressed, increase the x position of the character by 5". You'll remember from the animation section of Intro to JS that this moves the character to the right.
+        x += 5;
+    }
+    if(keys[LEFT]){
+        x -= 5;
+    }
+    if(keys[UP]){
+        y -= 5;
+    }
+    if(keys[DOWN]){
+        y += 5;
+    }
+};
