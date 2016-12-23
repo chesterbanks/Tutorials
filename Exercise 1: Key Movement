@@ -1,0 +1,27 @@
+/** An exercise */
+
+var x = 200;
+var y = 200;
+
+var keys = [];
+keyPressed = function(){
+    keys[keyCode] = true;
+};
+keyReleased = function(){
+    keys[keyCode] = false;
+};
+
+draw = function() {
+    background(224, 62, 62);
+    
+    noStroke();
+    fill(255);
+    ellipse(x, y, 30, 30);
+    fill(25);
+    ellipse(x + 5, y, 5, 5);
+    ellipse(x - 5, y, 5, 5);
+    
+    fill(255);
+    textSize(14);
+    text(' <-- Make this guy move\n       with the arrow keys!', 220, 202);
+};
