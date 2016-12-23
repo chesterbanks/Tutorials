@@ -1,3 +1,15 @@
+/** 
+ * Lesson 1 for Legolas Greenleaf and Shadow Runner.
+        The first thing we're going to go over is USER INTERACTION. The first concept of this is Key Movement (making a character move when the player presses the arrow keys).
+ * WE'RE GOING TO NEED:
+    1. x and y variables for the character, and then put the character on those x and y variables in the draw function.
+    2. code so that when the player presses the right arrow key, the character moves to the right.
+    3. ^ ditto for the left, up, and down arrow keys.
+    
+    #2 & #3 will be need to be in the draw function. If you put it outside the draw function, the computer would ONLY check if the player was pressing the arrow keys at the moment the program started, not a moment after.
+ * 
+*/
+
 /** The x and y positions of the character. */
 var x = 200;
 var y = 200;
@@ -12,7 +24,7 @@ keyReleased = function(){
 };
 
 draw = function() {
-    background(144, 62, 179);
+    background(144, 62, 179); // a background (obviously)
     
     noStroke();
     /* The character itself, drawn at the x & y variables we defined earlier. In a real game, this ellipse would be replaced with better character graphics. */
@@ -33,9 +45,9 @@ draw = function() {
         y += 5;
     } */
     
-    /** This is the right way to do key movement. Instead of saying "if(keyIsPressed && keyCode === RIGHT){", you simply say "if(keys[RIGHT]){" */
+    /** This is the right way to do key movement. Instead of saying "if(keyIsPressed && keyCode === RIGHT){", you simply say "if(keys[RIGHT]){". Remember: this method is only possible if you have lines 13 - 19 previously in the code. */
     if(keys[RIGHT]){ // This is saying, "if the right key is pressed, increase the x position of the character by 5". You'll remember from the animation section of Intro to JS that this moves the character to the right.
-        x += 5;
+        x += 5; // If 5 was a bigger number, the character would move to the right faster.
     }
     if(keys[LEFT]){
         x -= 5;
